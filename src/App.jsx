@@ -63,7 +63,6 @@ function App() {
             commonCount={commonCount}
             setCommonCount={setCommonCount}
             setCartItems={setCartItems}
-            test = {onSendData}
           />
         ))}
       </div>
