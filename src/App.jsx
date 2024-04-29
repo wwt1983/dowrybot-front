@@ -5,6 +5,7 @@ import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
 import { BACKAND_URL } from "./constants";
+import axios from "axios";
 
 const orders = getData();
 
@@ -18,13 +19,14 @@ function App() {
     console.log("query===", cartItems);
 
     console.log("===>", query);
-    fetch(`${BACKAND_URL}telegram/bot`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({test: 'test_data'}),
-    });
+    axios
+      .post(`${BACKAND_URL}telegram/bot`, {
+        body: JSON.stringify({ test: "test_data" }),
+      })
+      .then(() => {})
+      .catch((err) => {
+        console.log(err.message);
+      });
     //onClose();
   }, [cartItems]);
 
