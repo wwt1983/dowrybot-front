@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <h4 className="heading">{cartItems ? cartItems.tittle : "Раздачи"}</h4>
+      <h4 className="heading">{cartItems ? cartItems.title : "Раздачи"}</h4>
       <Cart order={cartItems} onCheckout={onCheckout}/>
       <div className="cards__container">
         {orders.map((order) => (
