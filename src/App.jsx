@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     if (commonCount > 0) {
       tg.MainButton.text = "Продолжить";
-      tg.MainButton.color = "rgb(30, 93, 41)";
+      tg.MainButton.color = "#ad9a1c";
       tg.MainButton.show();
     } else {
       tg.MainButton.hide();
