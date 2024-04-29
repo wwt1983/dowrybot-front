@@ -14,11 +14,11 @@ function App() {
 
   useEffect(() => {
     TELEGRAM.ready();
-    TELEGRAM.MainButton.text = "Продолжить";
-    TELEGRAM.MainButton.color = "rgb(38, 121, 38)";
   }, []);
 
   const tgOnChange = () => {
+    TELEGRAM.MainButton.text = "Продолжить";
+    TELEGRAM.MainButton.color = "rgb(38, 121, 38)";
     TELEGRAM.MainButton.isVisible ? commonCount > 0 : false;
   };
 
