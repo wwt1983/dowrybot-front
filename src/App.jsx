@@ -17,6 +17,10 @@ function App() {
   }, [cartItems]);
 
   useEffect(() => {
+    tg.ready();
+  }, []);
+
+  useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     onClose();
     return () => {
@@ -25,13 +29,9 @@ function App() {
   }, [onSendData]);
 
   useEffect(() => {
-    tg.ready();
-    tg.MainButton.text = "Продолжить";
-    tg.MainButton.color = "rgb(30, 93, 41)";
-  }, []);
-
-  useEffect(() => {
     if (commonCount > 0) {
+      tg.MainButton.text = "Продолжить";
+      tg.MainButton.color = "rgb(30, 93, 41)";
       tg.MainButton.show();
     } else {
       tg.MainButton.hide();
