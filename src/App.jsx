@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", tg.sendData(JSON.stringify(cartItems)));
-    onClose();
+   // onClose();
     return () => {
       tg.offEvent("mainButtonClicked", tg.sendData(JSON.stringify(cartItems)));
     };
