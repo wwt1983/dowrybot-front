@@ -26,7 +26,7 @@ function App() {
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, [onSendData]);
+  }, []);
 
   useEffect(() => {
     if (commonCount > 0) {
