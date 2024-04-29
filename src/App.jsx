@@ -14,7 +14,6 @@ function App() {
   const { tg, onClose, queryId } = useTelegram();
 
   const onSendData = useCallback(() => {
-    //tg.sendData(JSON.stringify({...cartItems, queryId}));
     const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
     console.log("query===", cartItems);
 
@@ -24,7 +23,7 @@ function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(query),
+      body: JSON.stringify({test: 'test_data'}),
     });
     //onClose();
   }, [cartItems]);
