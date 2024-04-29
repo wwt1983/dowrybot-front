@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
+import {BACKAND_URL} from './constants'
+
 
 const orders = getData();
 
@@ -11,22 +13,27 @@ function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
   const { tg, onClose, queryId } = useTelegram();
+ 
+ 
+  const onSendData = (cartItems) => {
+    //tg.sendData(JSON.stringify({...cartItems, queryId}));
+    const query = queryId ? {... cartItems, query_id: queryId} : cartItems  
+    console.log('query===', cartItems)
+
+    console.log('===>', query)
+    fetch(`${BACKAND_URL}telegram/bot`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(query),
+    });
+    onClose();
+  };
 
   useEffect(() => {
     tg.ready();
   }, []);
-
-  const onSendData = () => {
-    //tg.sendData(JSON.stringify({...cartItems, queryId}));
-    fetch("https://true-berries-own.loca.lt/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: { userId: "1", title: "Fix my bugs", completed: "false" },
-    });
-    onClose();
-  };
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
@@ -56,6 +63,7 @@ function App() {
             commonCount={commonCount}
             setCommonCount={setCommonCount}
             setCartItems={setCartItems}
+            test = {onSendData}
           />
         ))}
       </div>
