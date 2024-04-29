@@ -12,21 +12,21 @@ function App() {
   const [cartItems, setCartItems] = useState(null);
   const { tg, onClose } = useTelegram();
 
+  useEffect(() => {
+    tg.ready();
+  }, []);
+
   const onSendData = useCallback(() => {
     tg.sendData(JSON.stringify(cartItems));
   }, [cartItems]);
 
   useEffect(() => {
-    tg.ready();
-  }, []);
-
-  // useEffect(() => {
-  //   tg.onEvent("mainButtonClicked", onSendData);
-  //   onClose();
-  //   return () => {
-  //     tg.offEvent("mainButtonClicked", onSendData);
-  //   };
-  // }, [onSendData]);
+    tg.onEvent("mainButtonClicked", onSendData);
+    onClose();
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
 
   useEffect(() => {
     if (commonCount > 0) {
