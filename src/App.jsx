@@ -26,7 +26,7 @@ function App() {
       },
       body: JSON.stringify(query),
     });
-    onClose();
+    //onClose();
   }, [cartItems]);
 
   useEffect(() => {
