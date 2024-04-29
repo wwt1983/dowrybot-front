@@ -16,11 +16,16 @@ function App() {
     tg.ready();
   }, []);
 
+  const onSendData = useCallback(() => {
+    tg.sendData(JSON.stringify(cartItems));
+    console.log('senddata', cartItems)
+    onClose();
+  }, [cartItems]);
+
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", tg.sendData(JSON.stringify(cartItems)));
-   // onClose();
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("mainButtonClicked", tg.sendData(JSON.stringify(cartItems)));
+      tg.offEvent("mainButtonClicked", onSendData);
     };
   }, []);
 
