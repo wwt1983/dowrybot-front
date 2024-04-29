@@ -20,8 +20,8 @@ function App() {
 
     console.log("===>", query);
     axios
-      .post(`${BACKAND_URL}telegram/bot`, {
-        body: JSON.stringify({ test: "test_data" }),
+      .get(`${BACKAND_URL}test`, {
+        //body: JSON.stringify({ test: "test_data" }),
       })
       .then(() => {})
       .catch((err) => {
