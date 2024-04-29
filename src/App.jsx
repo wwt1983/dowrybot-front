@@ -18,14 +18,15 @@ function App() {
   }, []);
 
   const onCheckout = () => {
-    TELEGRAM.MainButton.text = 'Продолжить'
-    TELEGRAM.MainButton.show()
-  }
+    TELEGRAM.MainButton.text = "Продолжить";
+    TELEGRAM.MainButton.show();
+    TELEGRAM.MainButton.color = "rgb(38, 121, 38)";
+  };
 
   return (
     <>
       <h4 className="heading">{cartItems ? cartItems.title : "Раздачи"}</h4>
-      <Cart order={cartItems} onCheckout={onCheckout}/>
+      <Cart order={cartItems} onCheckout={onCheckout} />
       <div className="cards__container">
         {orders.map((order) => (
           <Card

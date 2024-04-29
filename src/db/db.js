@@ -11,30 +11,35 @@ export function getData() {
       cash: "100",
       Image: img1,
       id: 1,
+      keys: 'тюль-ключ',
     },
     {
       title: "Шорты",
       cash: "200",
       Image: img2,
       id: 2,
+      keys: 'шторы-ключ',
     },
     {
       title: "Брюки мужские",
       cash: "200",
       Image: img3,
       id: 3,
+      keys: 'брюки-ключ',
     },
     {
       title: "Брюки женские",
       cash: "400",
       Image: img4,
       id: 4,
+      keys: 'брюки-ключ',
     },
     {
       title: "Панама",
       cash: "300",
       Image: img5,
       id: 5,
+      keys: 'панама-ключ',
     },
   ];
 }
