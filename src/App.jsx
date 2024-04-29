@@ -18,14 +18,14 @@ function App() {
 
   const onSendData = useCallback(() => {
     //tg.sendData(JSON.stringify({...cartItems, queryId}));
-    console.log('senddata', cartItems)
-    fetch('https://long-jars-pull.loca.lt/telegram/webdata', {
-      method: 'POST',
+    console.log("senddata", cartItems);
+    fetch("https://long-jars-pull.loca.lt/telegram/webdata", {
+      method: "POST",
       headers: {
-          'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({...cartItems, queryId})
-  })
+      body: JSON.stringify({ ...cartItems, queryId }),
+    });
     onClose();
   }, [cartItems]);
 
