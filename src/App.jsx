@@ -4,8 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
-import {BACKAND_URL} from './constants'
-
+import { BACKAND_URL } from "./constants";
 
 const orders = getData();
 
@@ -13,14 +12,13 @@ function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
   const { tg, onClose, queryId } = useTelegram();
- 
- 
-  const onSendData = (cartItems) => {
-    //tg.sendData(JSON.stringify({...cartItems, queryId}));
-    const query = queryId ? {... cartItems, query_id: queryId} : cartItems  
-    console.log('query===', cartItems)
 
-    console.log('===>', query)
+  const onSendData = useCallback(() => {
+    //tg.sendData(JSON.stringify({...cartItems, queryId}));
+    const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
+    console.log("query===", cartItems);
+
+    console.log("===>", query);
     fetch(`${BACKAND_URL}telegram/bot`, {
       method: "POST",
       headers: {
@@ -29,7 +27,7 @@ function App() {
       body: JSON.stringify(query),
     });
     onClose();
-  };
+  }, [cartItems]);
 
   useEffect(() => {
     tg.ready();
