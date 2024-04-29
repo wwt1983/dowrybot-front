@@ -10,14 +10,14 @@ const orders = getData();
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
-  const { tg, onClose } = useTelegram();
+  const { tg, onClose, queryId } = useTelegram();
 
   useEffect(() => {
     tg.ready();
   }, []);
 
   const onSendData = useCallback(() => {
-    tg.sendData(JSON.stringify(cartItems));
+    tg.sendData(JSON.stringify({...cartItems, queryId}));
     console.log('senddata', cartItems)
     onClose();
   }, [cartItems]);
