@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./Card.css";
 import Button from "../button/Button";
 
-function Card({ order, commonCount, setCommonCount, setCartItems,  tgOnChange}) {
+function Card({ order, commonCount, setCommonCount, setCartItems}) {
   const [count, setCount] = useState(0);
 
   const { title, cash, Image, id } = order;
@@ -13,14 +13,12 @@ function Card({ order, commonCount, setCommonCount, setCartItems,  tgOnChange}) 
       setCount(1);
       setCartItems(order);  
       setCommonCount(1);
-      tgOnChange(true)
     }
   };
   const handleDecrement = () => {
     setCount(0);
     setCommonCount(0);
     setCartItems(null);
-    tgOnChange(false);
   };
 
   return (

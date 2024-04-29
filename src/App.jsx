@@ -10,17 +10,21 @@ const orders = getData();
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
-  const { tg, onToggleButton } = useTelegram();
+  const { tg } = useTelegram();
 
   useEffect(() => {
     tg.ready();
+    tg.MainButton.text = "Продолжить";
+    tg.MainButton.color = "rgb(30, 93, 41)";
   }, []);
 
-  const tgOnChange = () => {
-    tg.MainButton.text = "Продолжить";
-    tg.MainButton.color = "red";
-    onToggleButton();
-  };
+  useEffect(() => {
+    if (commonCount > 0) {
+      tg.MainButton.show();
+    } else {
+      tg.MainButton.hide();
+    }
+  }, [commonCount]);
 
   return (
     <>
@@ -33,7 +37,6 @@ function App() {
             commonCount={commonCount}
             setCommonCount={setCommonCount}
             setCartItems={setCartItems}
-            tgOnChange={tgOnChange}
           />
         ))}
       </div>
