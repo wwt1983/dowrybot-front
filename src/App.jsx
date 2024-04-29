@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 
-import Cart from "./components/cart/Cart";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 
@@ -15,18 +14,17 @@ function App() {
 
   useEffect(() => {
     TELEGRAM.ready();
+    TELEGRAM.MainButton.text = "Продолжить";
+    TELEGRAM.MainButton.color = "rgb(38, 121, 38)";
   }, []);
 
-  const onCheckout = () => {
-    TELEGRAM.MainButton.text = "Продолжить";
-    TELEGRAM.MainButton.show();
-    TELEGRAM.MainButton.color = "rgb(38, 121, 38)";
+  const tgOnChange = () => {
+    TELEGRAM.MainButton.isVisible ? commonCount > 0 : false;
   };
 
   return (
     <>
       <h4 className="heading">{cartItems ? cartItems.title : "Раздачи"}</h4>
-      <Cart order={cartItems} onCheckout={onCheckout} />
       <div className="cards__container">
         {orders.map((order) => (
           <Card
@@ -35,6 +33,7 @@ function App() {
             commonCount={commonCount}
             setCommonCount={setCommonCount}
             setCartItems={setCartItems}
+            tgOnChange={tgOnChange}
           />
         ))}
       </div>
