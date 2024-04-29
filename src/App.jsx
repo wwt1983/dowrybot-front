@@ -22,7 +22,7 @@ function App() {
     if (commonCount > 0) {
       TELEGRAM.MainButton.show();
     } else {
-      TELEGRAM.MainButton.hide();
+      TELEGRAM.MainButton.show();
     }
   };
 
