@@ -13,14 +13,14 @@ function Card({ order, commonCount, setCommonCount, setCartItems,  tgOnChange}) 
       setCount(1);
       setCartItems(order);  
       setCommonCount(1);
-      tgOnChange()
+      tgOnChange(true)
     }
   };
   const handleDecrement = () => {
     setCount(0);
     setCommonCount(0);
     setCartItems(null);
-    tgOnChange();
+    tgOnChange(false);
   };
 
   return (

@@ -16,13 +16,13 @@ function App() {
     TELEGRAM.ready();
   }, []);
 
-  const tgOnChange = () => {
+  const tgOnChange = (isVisible) => {
     TELEGRAM.MainButton.text = "Продолжить";
-    TELEGRAM.MainButton.color = "rgb(38, 121, 38)";
-    if (commonCount > 0) {
+    TELEGRAM.MainButton.color = "red";
+    if (isVisible) {
       TELEGRAM.MainButton.show();
     } else {
-      TELEGRAM.MainButton.show();
+      TELEGRAM.MainButton.hide();
     }
   };
 
