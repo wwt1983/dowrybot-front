@@ -19,7 +19,7 @@ function App() {
   const onSendData = useCallback(() => {
     //tg.sendData(JSON.stringify({...cartItems, queryId}));
     console.log('senddata', cartItems)
-    fetch('https://long-jars-pull.loca.lt/telegram/web-data', {
+    fetch('https://long-jars-pull.loca.lt/telegram/webdata', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
