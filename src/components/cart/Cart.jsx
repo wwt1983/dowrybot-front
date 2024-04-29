@@ -4,7 +4,7 @@ import Button from "../button/Button";
 function Cart({ order, onCheckout }) {
   return (
     <div className="cart__container">
-      <br /> <span className="">Ваша разадча: {order.title}</span>
+      <br /> <span className="">{order ? `Ваша разадча: ${order.title} : 'Выберите раздачу'` }</span>
       {!order ? (
         "Раздача не выбрана"
       ) : (
