@@ -3,23 +3,23 @@ import { useState, useEffect } from "react";
 
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
+import { useTelegram } from "./hooks/useTelegram";
 
 const orders = getData();
-
-const TELEGRAM = window.Telegram.WebApp;
 
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
+  const { tg, onToggleButton } = useTelegram();
 
   useEffect(() => {
-    TELEGRAM.ready();
+    tg.ready();
   }, []);
 
   const tgOnChange = () => {
-    TELEGRAM.MainButton.text = "Продолжить";
-    TELEGRAM.MainButton.color = "red";
-    TELEGRAM.MainButton.show();
+    tg.MainButton.text = "Продолжить";
+    tg.MainButton.color = "red";
+    onToggleButton();
   };
 
   return (
