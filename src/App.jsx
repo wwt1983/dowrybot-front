@@ -16,17 +16,17 @@ function App() {
     tg.ready();
   }, []);
 
-  const onSendData = useCallback(() => {
+  const onSendData = () => {
     //tg.sendData(JSON.stringify({...cartItems, queryId}));
     fetch("https://true-berries-own.loca.lt/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: { userId: '1', title: 'Fix my bugs', completed: 'false' },
+      body: { userId: "1", title: "Fix my bugs", completed: "false" },
     });
     onClose();
-  }, [cartItems]);
+  };
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
