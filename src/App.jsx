@@ -14,7 +14,7 @@ function App() {
 
   const onSendData = useCallback(() => {
     tg.sendData(JSON.stringify(cartItems));
-  }, []);
+  }, [cartItems]);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
