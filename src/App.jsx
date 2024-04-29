@@ -20,13 +20,13 @@ function App() {
     tg.ready();
   }, []);
 
-  useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData);
-    onClose();
-    return () => {
-      tg.offEvent("mainButtonClicked", onSendData);
-    };
-  }, [onSendData]);
+  // useEffect(() => {
+  //   tg.onEvent("mainButtonClicked", onSendData);
+  //   onClose();
+  //   return () => {
+  //     tg.offEvent("mainButtonClicked", onSendData);
+  //   };
+  // }, [onSendData]);
 
   useEffect(() => {
     if (commonCount > 0) {
