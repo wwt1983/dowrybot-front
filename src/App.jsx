@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   const onCheckout = () => {
-    TELEGRAM.MainButton.text = 'TEST'
+    TELEGRAM.MainButton.text = 'Продолжить'
     TELEGRAM.MainButton.show()
   }
 
