@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
@@ -11,6 +11,17 @@ function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
   const { tg } = useTelegram();
+
+  const onSendData = useCallback(() => {
+    tg.sendData(JSON.stringify(cartItems));
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, []);
 
   useEffect(() => {
     tg.ready();
