@@ -22,7 +22,7 @@ function App() {
     if (isVisible) {
       TELEGRAM.MainButton.show();
     } else {
-      TELEGRAM.MainButton.hide();
+      TELEGRAM.MainButton.show();
     }
   };
 
