@@ -24,7 +24,7 @@ function App() {
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(JSON.stringify({...cartItems, queryId}))
+      body: JSON.stringify({...cartItems, queryId})
   })
     onClose();
   }, [cartItems]);
