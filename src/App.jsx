@@ -18,7 +18,6 @@ function App() {
 
   const onSendData = useCallback(() => {
     //tg.sendData(JSON.stringify({...cartItems, queryId}));
-    console.log("senddata", cartItems);
     fetch("https://long-jars-pull.loca.lt/telegram/webdata", {
       method: "POST",
       headers: {
@@ -34,7 +33,7 @@ function App() {
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   useEffect(() => {
     if (commonCount > 0) {
