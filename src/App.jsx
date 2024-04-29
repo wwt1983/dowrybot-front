@@ -10,7 +10,7 @@ const orders = getData();
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
-  const { tg } = useTelegram();
+  const { tg, onClose } = useTelegram();
 
   const onSendData = useCallback(() => {
     tg.sendData(JSON.stringify(cartItems));
@@ -18,10 +18,11 @@ function App() {
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
+    onClose();
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   useEffect(() => {
     tg.ready();
