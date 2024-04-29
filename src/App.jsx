@@ -18,12 +18,12 @@ function App() {
 
   const onSendData = useCallback(() => {
     //tg.sendData(JSON.stringify({...cartItems, queryId}));
-    fetch("https://true-berries-own.loca.lt/telegram/bot", {
-      method: "POST",
+    fetch("https://true-berries-own.loca.lt/", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...cartItems, queryId }),
+      body: { userId: '1', title: 'Fix my bugs', completed: 'false' },
     });
     onClose();
   }, [cartItems]);
