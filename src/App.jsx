@@ -16,14 +16,10 @@ function App() {
     TELEGRAM.ready();
   }, []);
 
-  const tgOnChange = (isVisible) => {
+  const tgOnChange = () => {
     TELEGRAM.MainButton.text = "Продолжить";
     TELEGRAM.MainButton.color = "red";
-    if (isVisible) {
-      TELEGRAM.MainButton.show();
-    } else {
-      TELEGRAM.MainButton.show();
-    }
+    TELEGRAM.MainButton.show();
   };
 
   return (
