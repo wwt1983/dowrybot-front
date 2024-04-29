@@ -6,7 +6,7 @@ function Cart({ order, onCheckout }) {
     <div className="cart__container">
       <br />{" "}
       <span className="">
-        {order ? `Ваша раздача: ${order.title}` : "Выберите раздачу"}
+        {order ? `Ваша раздача: ${order.title}` : ""}
       </span>
       {!order ? (
         "Раздача не выбрана"
