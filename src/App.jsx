@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
@@ -11,20 +11,18 @@ const orders = getData();
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
-  const { tg, onClose, queryId ,id} = useTelegram();
+  const { tg, onClose, queryId, id } = useTelegram();
 
-  async function onSendData() {
+  const onSendData = useCallback(async () => {
     try {
-      const query = queryId ? { ...cartItems, query_id: queryId , id: id} : cartItems;
-      console.log("query===", cartItems);
-      let response = await fetch(
+      const response = await fetch(
         `https://honest-snails-scream.loca.lt/telegram/bot`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
           },
-          body: JSON.stringify(query),
+          body: JSON.stringify({ ...cartItems, query_id: queryId, id: id }),
         }
       );
       let result = await response.json();
@@ -34,7 +32,7 @@ function App() {
     } catch (e) {
       console.log(e);
     }
-  }
+  }, [onClose, queryId, id, cartItems]);
 
   useEffect(() => {
     tg.ready();
@@ -55,7 +53,7 @@ function App() {
     } else {
       tg.MainButton.hide();
     }
-  }, [commonCount]);
+  }, [commonCount, tg.MainButton]);
 
   return (
     <>
@@ -68,7 +66,6 @@ function App() {
             commonCount={commonCount}
             setCommonCount={setCommonCount}
             setCartItems={setCartItems}
-            onSendData={onSendData}
           />
         ))}
       </div>
