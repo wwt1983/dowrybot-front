@@ -53,7 +53,7 @@ function App() {
     } else {
       tg.MainButton.hide();
     }
-  }, [commonCount, tg.MainButton]);
+  }, [commonCount]);
 
   return (
     <>
