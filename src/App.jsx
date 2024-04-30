@@ -28,7 +28,7 @@ function App() {
       let result = await response.json();
       console.log("===> response", result);
 
-      onClose();
+      //onClose();
     } catch (e) {
       console.log(e);
     }
