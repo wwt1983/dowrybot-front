@@ -11,7 +11,7 @@ const orders = getData();
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
-  const { tg, onClose, queryId, id } = useTelegram();
+  const { tg, queryId, id } = useTelegram();
 
   const onSendData = useCallback(async () => {
     try {
@@ -25,14 +25,12 @@ function App() {
           body: JSON.stringify({ ...cartItems, query_id: queryId, id: id }),
         }
       );
-      let result = await response.json();
-      console.log("===> response", result);
-
-      //onClose();
+      await response.json();
+      tg.close();
     } catch (e) {
       console.log(e);
     }
-  }, [onClose, queryId, id, cartItems]);
+  }, [tg, queryId, id, cartItems]);
 
   useEffect(() => {
     tg.ready();
