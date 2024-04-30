@@ -5,7 +5,6 @@ import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
 import { BACKAND_URL } from "./constants";
-import axios from "axios";
 
 const orders = getData();
 
@@ -14,24 +13,20 @@ function App() {
   const [cartItems, setCartItems] = useState(null);
   const { tg, onClose, queryId } = useTelegram();
 
-  const onSendData = useCallback(() => {
+  const onSendData = useCallback(async () => {
     try {
-      const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
+      const query = queryId ? { ...orders[0], query_id: queryId } : orders[0];
       console.log("query===", cartItems);
-      axios
-        .get(`${BACKAND_URL}test`, {
-          proxy: {
-            protocol: "http,https",
-            host: "149.129.239.170",
-            port: 8080,
-          },
-          referrerPolicy: "unsafe_url" 
-          //body: JSON.stringify({ test: "test_data" }),
-        })
-        .then((res) => {console.log(res)})
-        .catch((err) => {
-          console.log(err.message);
-        });
+      let response = await fetch(`https://metal-sloths-admire.loca.lt/telegram/bot`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(query)
+      });
+      let result = await response.json();
+
+      console.log('===> response', result)
       //onClose();
     } catch (e) {
       console.log(e);
