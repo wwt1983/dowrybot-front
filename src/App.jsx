@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
@@ -11,11 +11,11 @@ const orders = getData();
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [cartItems, setCartItems] = useState(null);
-  const { tg, onClose, queryId } = useTelegram();
+  const { tg, onClose, queryId ,id} = useTelegram();
 
   async function onSendData() {
     try {
-      const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
+      const query = queryId ? { ...cartItems, query_id: queryId , id: id} : cartItems;
       console.log("query===", cartItems);
       let response = await fetch(
         `https://honest-snails-scream.loca.lt/telegram/bot`,
