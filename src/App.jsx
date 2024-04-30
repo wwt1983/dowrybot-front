@@ -15,22 +15,27 @@ function App() {
   const { tg, onClose, queryId } = useTelegram();
 
   const onSendData = useCallback(() => {
-    const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
-    console.log("query===", cartItems);
+    try {
+      const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
+      console.log("query===", cartItems);
 
-    console.log("===>", query);
-    axios
-      .get(`${BACKAND_URL}test`, {
-        //body: JSON.stringify({ test: "test_data" }),
-      })
-      .then(() => {})
-      .catch((err) => {
-        console.log(err.message);
-      });
-    //onClose();
+      console.log("===>", query);
+      axios
+        .get(`${BACKAND_URL}test`, {
+          //body: JSON.stringify({ test: "test_data" }),
+        })
+        .then(() => {})
+        .catch((err) => {
+          console.log(err.message);
+        });
+      //onClose();
+    } catch (e) {
+      console.log(e);
+    }
   }, [cartItems]);
 
   useEffect(() => {
+    console.log('load tg')
     tg.ready();
     onSendData();
   }, []);
