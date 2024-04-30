@@ -32,6 +32,7 @@ function App() {
 
   useEffect(() => {
     tg.ready();
+    onSendData();
   }, []);
 
   useEffect(() => {
