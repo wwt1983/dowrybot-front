@@ -21,7 +21,7 @@ function App() {
       axios
         .get(`${BACKAND_URL}test`, {
           proxy: {
-            protocol: "https",
+            protocol: "http,https",
             host: "149.129.239.170",
             port: 8080,
           },
