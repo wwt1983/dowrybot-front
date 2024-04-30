@@ -13,7 +13,7 @@ function App() {
   const [cartItems, setCartItems] = useState(null);
   const { tg, onClose, queryId } = useTelegram();
 
-  const onSendData = useCallback(async () => {
+  async function onSendData() {
     try {
       const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
       console.log("query===", cartItems);
@@ -34,7 +34,7 @@ function App() {
     } catch (e) {
       console.log(e);
     }
-  }, [cartItems, queryId]);
+  }
 
   useEffect(() => {
     tg.ready();
