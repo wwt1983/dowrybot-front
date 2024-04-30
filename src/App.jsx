@@ -15,28 +15,29 @@ function App() {
 
   const onSendData = useCallback(async () => {
     try {
-      const query = queryId ? { ...orders[0], query_id: queryId } : orders[0];
+      const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
       console.log("query===", cartItems);
-      let response = await fetch(`https://metal-sloths-admire.loca.lt/telegram/bot`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(query)
-      });
+      let response = await fetch(
+        `https://metal-sloths-admire.loca.lt/telegram/bot`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(query),
+        }
+      );
       let result = await response.json();
+      console.log("===> response", result);
 
-      console.log('===> response', result)
-      //onClose();
+      onClose();
     } catch (e) {
       console.log(e);
     }
-  }, [cartItems]);
+  }, [cartItems ,queryId, onClose]);
 
   useEffect(() => {
-    console.log("load tg");
     tg.ready();
-    onSendData();
   }, []);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ function App() {
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, [onSendData]);
+  }, [onSendData, tg]);
 
   useEffect(() => {
     if (commonCount > 0) {
