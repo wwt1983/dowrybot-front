@@ -15,18 +15,20 @@ function App() {
 
   const onSendData = useCallback(async () => {
     try {
-      const response = await fetch(
-        `https://honest-snails-scream.loca.lt/telegram/bot`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify({ ...cartItems, query_id: queryId, id: id }),
-        }
-      );
-      await response.json();
-      tg.close();
+      if (queryId) {
+        const response = await fetch(
+          `https://honest-snails-scream.loca.lt/telegram/bot`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify({ ...cartItems, query_id: queryId, id: id }),
+          }
+        );
+        await response.json();
+        tg.close();
+      }
     } catch (e) {
       console.log(e);
     }
