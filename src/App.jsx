@@ -18,7 +18,7 @@ function App() {
       const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
       console.log("query===", cartItems);
       let response = await fetch(
-        `https://metal-sloths-admire.loca.lt/telegram/bot`,
+        `https://honest-snails-scream.loca.lt/telegram/bot`,
         {
           method: "POST",
           headers: {
