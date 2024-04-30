@@ -34,18 +34,11 @@ function App() {
     } catch (e) {
       console.log(e);
     }
-  }, [cartItems ,queryId, onClose]);
+  }, [cartItems, queryId]);
 
   useEffect(() => {
     tg.ready();
   }, []);
-
-  useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData);
-    return () => {
-      tg.offEvent("mainButtonClicked", onSendData);
-    };
-  }, [onSendData, tg]);
 
   useEffect(() => {
     if (commonCount > 0) {
@@ -56,6 +49,13 @@ function App() {
       tg.MainButton.hide();
     }
   }, [commonCount]);
+
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
 
   return (
     <>
