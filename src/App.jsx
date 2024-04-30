@@ -18,13 +18,16 @@ function App() {
     try {
       const query = queryId ? { ...cartItems, query_id: queryId } : cartItems;
       console.log("query===", cartItems);
-
-      console.log("===>", query);
       axios
         .get(`${BACKAND_URL}test`, {
+          proxy: {
+            protocol: "http",
+            host: "149.129.239.170",
+            port: 8080,
+          },
           //body: JSON.stringify({ test: "test_data" }),
         })
-        .then(() => {})
+        .then((res) => {console.log(res)})
         .catch((err) => {
           console.log(err.message);
         });
@@ -35,7 +38,7 @@ function App() {
   }, [cartItems]);
 
   useEffect(() => {
-    console.log('load tg')
+    console.log("load tg");
     tg.ready();
     onSendData();
   }, []);
