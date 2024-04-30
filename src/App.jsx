@@ -41,11 +41,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", onClose);
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("mainButtonClicked", onClose);
+      tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, [onClose, tg]);
+  }, [onSendData, tg]);
 
   useEffect(() => {
     if (commonCount > 0) {
