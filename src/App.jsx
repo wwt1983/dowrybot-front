@@ -25,6 +25,7 @@ function App() {
             host: "149.129.239.170",
             port: 8080,
           },
+          referrerPolicy: "unsafe_url" 
           //body: JSON.stringify({ test: "test_data" }),
         })
         .then((res) => {console.log(res)})
