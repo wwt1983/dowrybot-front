@@ -38,6 +38,10 @@ function App() {
 
   useEffect(() => {
     tg.ready();
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
   }, []);
 
   useEffect(() => {
@@ -49,13 +53,6 @@ function App() {
       tg.MainButton.hide();
     }
   }, [commonCount]);
-
-  useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData);
-    return () => {
-      tg.offEvent("mainButtonClicked", onSendData);
-    };
-  }, [onSendData]);
 
   return (
     <>
