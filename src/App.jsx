@@ -78,7 +78,7 @@ function App() {
         <ClockLoader
           color="#ad9a1c"
           loading={isLoading}
-          size={30}
+          size={50}
           cssOverride={override}
           speedMultiplier={1}
         />
