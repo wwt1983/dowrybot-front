@@ -1,13 +1,16 @@
 import "./App.css";
 import { useState, useEffect, useCallback } from "react";
-import BeatLoader from "react-spinners/BeatLoader";
+import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
 import { BACKAND_URL } from "./constants";
 
 const orders = getData();
-
+const override = {
+  display: "block",
+  margin: "50% auto",
+};
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -72,11 +75,12 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <BeatLoader
+        <ClockLoader
           color="#ad9a1c"
           loading={isLoading}
           size={30}
-          data-testid="loader"
+          cssOverride={override}
+          speedMultiplier={1}
         />
       ) : (
         <>
