@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect, useCallback } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
@@ -16,12 +16,11 @@ const override = {
 
 function App() {
   const [commonCount, setCommonCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState(null);
   const { tg, queryId, id } = useTelegram();
 
   const onSendData = useCallback(async () => {
-    console.log("test");
     try {
       if (queryId) {
         setIsLoading(true);
@@ -57,6 +56,7 @@ function App() {
 
   useEffect(() => {
     tg.ready();
+  
   }, []);
 
   useEffect(() => {
@@ -79,12 +79,11 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <ClipLoader
-          color={'"#ffffff"'}
+        <BeatLoader
+          color="#ad9a1c"
           loading={isLoading}
           cssOverride={override}
-          size={50}
-          aria-label="Loading Spinner"
+          size={30}
           data-testid="loader"
         />
       ) : (
