@@ -8,12 +8,6 @@ import { BACKAND_URL } from "./constants";
 
 const orders = getData();
 
-const override = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "red",
-};
-
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -81,7 +75,6 @@ function App() {
         <BeatLoader
           color="#ad9a1c"
           loading={isLoading}
-          cssOverride={override}
           size={30}
           data-testid="loader"
         />
