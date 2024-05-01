@@ -23,12 +23,18 @@ function App() {
             headers: {
               "Content-Type": "application/json;charset=utf-8",
             },
-            body: JSON.stringify({ ...cartItems, query_id: queryId, id: id }),
+            body: JSON.stringify({
+              title: cartItems.title,
+              cash: cartItems.cash,
+              keys: cartItems.keys,
+              query_id: queryId,
+              id: id,
+            }),
           }
         );
         await response.json();
         tg.close();
-      }else{
+      } else {
         //
       }
     } catch (e) {
