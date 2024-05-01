@@ -14,6 +14,7 @@ function App() {
   const { tg, queryId, id } = useTelegram();
 
   const onSendData = useCallback(async () => {
+    console.log('test')
     try {
       if (queryId) {
         const response = await fetch(
