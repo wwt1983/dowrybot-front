@@ -33,12 +33,13 @@ function App() {
           }
         );
         await response.json();
-        tg.close();
       } else {
         //
       }
     } catch (e) {
       console.log(e);
+    } finally {
+      tg.close();
     }
   }, [tg, queryId, id, cartItems]);
 
