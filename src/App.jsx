@@ -15,9 +15,9 @@ function App() {
 
   const onSendData = useCallback(async () => {
     try {
-      //if (queryId) {
+      if (queryId) {
         const response = await fetch(
-          `https://honest-snails-scream.loca.lt/telegram/bot`,
+          `https://true-ways-dance.loca.lt/telegram/bot`,
           {
             method: "POST",
             headers: {
@@ -28,9 +28,9 @@ function App() {
         );
         await response.json();
         tg.close();
-     // }else{
+      }else{
         //
-     // }
+      }
     } catch (e) {
       console.log(e);
     }
