@@ -55,8 +55,8 @@ function App() {
   }, [tg, queryId, id, cartItems]);
 
   useEffect(() => {
+    setIsLoading(true)
     tg.ready();
-  
   }, []);
 
   useEffect(() => {
