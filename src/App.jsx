@@ -28,6 +28,8 @@ function App() {
         );
         await response.json();
         tg.close();
+      }else{
+        //
       }
     } catch (e) {
       console.log(e);
