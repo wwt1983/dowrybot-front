@@ -11,6 +11,7 @@ export function getData() {
       cash: "100",
       Image: img1,
       id: 1,
+      articul: 208651819,
       keys: 'тюль-ключ-test',
     },
     {
@@ -18,6 +19,7 @@ export function getData() {
       cash: "200",
       Image: img2,
       id: 2,
+      articul: 208651819,
       keys: 'шторы-ключ-test',
     },
     {
@@ -25,6 +27,7 @@ export function getData() {
       cash: "200",
       Image: img3,
       id: 3,
+      articul: 208651819,
       keys: 'брюки-ключ-test',
     },
     {
@@ -32,6 +35,7 @@ export function getData() {
       cash: "400",
       Image: img4,
       id: 4,
+      articul: 208651819,
       keys: 'брюки-ключ-test',
     },
     {
@@ -39,6 +43,7 @@ export function getData() {
       cash: "300",
       Image: img5,
       id: 5,
+      articul: 208651819,
       keys: 'панама-ключ-test',
     },
   ];
