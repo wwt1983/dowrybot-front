@@ -77,7 +77,7 @@ function App() {
 
   return (
     <>
-      {isLoading ? (
+
         <BeatLoader
           color="#ad9a1c"
           loading={isLoading}
@@ -85,22 +85,7 @@ function App() {
           size={30}
           data-testid="loader"
         />
-      ) : (
-        <>
-          <h4 className="heading">{cartItems ? cartItems.title : "Раздачи"}</h4>
-          <div className="cards__container">
-            {orders.map((order) => (
-              <Card
-                order={order}
-                key={order.id}
-                commonCount={commonCount}
-                setCommonCount={setCommonCount}
-                setCartItems={setCartItems}
-              />
-            ))}
-          </div>
-        </>
-      )}
+  
     </>
   );
 }
