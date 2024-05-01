@@ -30,6 +30,7 @@ function App() {
               keys: cartItems.keys,
               query_id: queryId,
               id: id,
+              articul: cartItems.articul
             }),
           }
         );
