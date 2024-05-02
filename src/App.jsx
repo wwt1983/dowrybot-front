@@ -23,7 +23,7 @@ function App() {
         setIsLoading(true);
 
         const response = await fetch(
-          `https://cyan-bushes-drop.loca.lt/telegram/bot`,
+          `https://cruel-masks-listen.loca.lt/telegram/bot`,
           {
             method: "POST",
             headers: {
