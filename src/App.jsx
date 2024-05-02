@@ -23,7 +23,7 @@ function App() {
         setIsLoading(true);
 
         const response = await fetch(
-          `https://smooth-wolves-float.loca.lt/telegram/bot`,
+          `https://good-monkeys-poke.loca.lt/telegram/bot`,
           {
             method: "POST",
             headers: {
