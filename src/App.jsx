@@ -23,7 +23,7 @@ function App() {
         setIsLoading(true);
 
         const response = await fetch(
-          `https://wild-carpets-wonder.loca.lt/telegram/bot`,
+          `https://silent-bats-smash.loca.lt/telegram/bot`,
           {
             method: "POST",
             headers: {
