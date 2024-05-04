@@ -5,6 +5,7 @@ import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
 import { BACKAND_URL } from "./constants";
+import { sendData, getDistributions } from "./db/fetch";
 
 const orders = getData();
 const override = {
@@ -22,23 +23,7 @@ function App() {
       if (queryId) {
         setIsLoading(true);
 
-        const response = await fetch(
-          `https://silent-bats-smash.loca.lt/telegram/bot`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify({
-              title: cartItems.title,
-              cash: cartItems.cash,
-              keys: cartItems.keys,
-              query_id: queryId,
-              id: id,
-              articul: cartItems.articul,
-            }),
-          }
-        );
+        const response = await sendData(cartItems, queryId, id);
         await response.json();
       } else {
         //
@@ -52,6 +37,7 @@ function App() {
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
   useEffect(() => {
+    //getDistributions().then((response) => console.log(response));
     tg.ready();
   }, []);
 
