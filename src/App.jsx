@@ -4,7 +4,6 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
-import { BACKAND_URL } from "./constants";
 import { sendData, getDistributions } from "./db/fetch";
 
 const orders = getData();

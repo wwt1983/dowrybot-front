@@ -1,4 +1,5 @@
 const TEST_URL = "https://vast-geckos-sing.loca.lt/";
+import { BACKAND_URL } from "../constants";
 
 export async function sendData(cartItems, queryId, id) {
   return await fetch(`${TEST_URL}telegram/bot`, {
