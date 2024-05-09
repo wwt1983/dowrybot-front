@@ -32,11 +32,11 @@ function Card({ order, commonCount, setCommonCount, setCartItems }) {
         <img src={image} alt={title} />
       </div>
       <h4 className="card__title">
-        {title} .{" "}
+        {title}
         <span className="card__price">
           ❌ Цена на WB~ {priceWb} <br />
           ❗️ Кешбэк ~ {cash} ❗️ <br />
-          ⭐️ Ваша цена - {priceForYou} 🫶
+          ⭐️ Ваша цена - {priceForYou} 🫶 <br />
         </span>
       </h4>
       <div className="btn-container">
