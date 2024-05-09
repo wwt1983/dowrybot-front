@@ -19,7 +19,7 @@ export async function sendData(cartItems, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await fetch(`${BACKAND_URL}airtable/distribution`, {
+    const response = await fetch(`${BACKAND_URL}airtable/offers`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
