@@ -1,4 +1,5 @@
 import { BACKAND_URL } from "../constants";
+import { dtoToOffers } from "./convertDto";
 
 export async function sendData(cartItems, queryId, id) {
   return await fetch(`${BACKAND_URL}telegram/bot`, {
@@ -26,11 +27,12 @@ export async function getOffers() {
       },
     });
     const result = await response.json();
-    console.log('getOffers = ', result)
+    console.log("getOffers = ", result);
+    console.log("getOffers Dto = ", dtoToOffers(result));
 
-    return result;
+    return dtoToOffers(result.records);
   } catch (e) {
-    console.log('getOffers', e)
+    console.log("getOffers", e);
     return [];
   }
 }

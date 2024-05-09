@@ -32,7 +32,7 @@ function Card({ order, commonCount, setCommonCount, setCartItems}) {
         <img src={Image} alt={title} />
       </div>
       <h4 className="card__title">
-        {title} . <span className="card__price">кешбэк:{cash}</span>
+        {title} . <span className="card__price">{cash}</span>
       </h4>
       <div className="btn-container">
         <Button title={"+"} type={"add"} onClick={handleIncrement} />

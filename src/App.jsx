@@ -2,11 +2,9 @@ import "./App.css";
 import { useState, useEffect, useCallback } from "react";
 import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./components/card/Card";
-import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
 import { sendData, getOffers } from "./db/fetch";
 
-const orders = getData();
 const override = {
   display: "block",
   margin: "50% auto",
@@ -15,6 +13,7 @@ function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [cartItems, setCartItems] = useState(null);
+  const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
 
   const onSendData = useCallback(async () => {
@@ -35,10 +34,6 @@ function App() {
     }
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
-  useEffect(() => {
-    getOffers().then((response) => console.log(response));
-    tg.ready();
-  }, []);
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
@@ -56,6 +51,11 @@ function App() {
       tg.MainButton.hide();
     }
   }, [commonCount]);
+
+  useEffect(() => {
+    getOffers().then((response) => setOrders(response));
+    tg.ready();
+  }, []);
 
   return (
     <>
