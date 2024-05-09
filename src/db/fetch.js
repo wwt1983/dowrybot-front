@@ -17,7 +17,7 @@ export async function sendData(cartItems, queryId, id) {
   });
 }
 
-export async function getDistributions() {
+export async function getOffers() {
   try {
     const response = await fetch(`${BACKAND_URL}/airtable/distribution`, {
       method: "GET",
@@ -26,8 +26,11 @@ export async function getDistributions() {
       },
     });
     const result = await response.json();
+    console.log('getOffers = ', result)
+
     return result;
   } catch (e) {
+    console.log('getOffers', e)
     return [];
   }
 }

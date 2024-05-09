@@ -4,7 +4,7 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./components/card/Card";
 import { getData } from "./db/db";
 import { useTelegram } from "./hooks/useTelegram";
-import { sendData, getDistributions } from "./db/fetch";
+import { sendData, getOffers } from "./db/fetch";
 
 const orders = getData();
 const override = {
@@ -36,7 +36,7 @@ function App() {
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
   useEffect(() => {
-    //getDistributions().then((response) => console.log(response));
+    getOffers().then((response) => console.log(response));
     tg.ready();
   }, []);
 
