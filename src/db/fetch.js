@@ -26,10 +26,8 @@ export async function getOffers() {
         "Content-Type": "application/json;charset=utf-8",
       },
     });
-    const result = await response.json();
-    console.log("getOffers = ", result);
-    console.log("getOffers Dto = ", dtoToOffers(result));
 
+    const result = await response.json();
     return dtoToOffers(result.records);
   } catch (e) {
     console.log("getOffers", e);
