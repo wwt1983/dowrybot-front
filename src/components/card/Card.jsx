@@ -3,15 +3,15 @@ import { useState } from "react";
 import "./Card.css";
 import Button from "../button/Button";
 
-function Card({ order, commonCount, setCommonCount, setCartItems}) {
+function Card({ order, commonCount, setCommonCount, setCartItems }) {
   const [count, setCount] = useState(0);
 
-  const { title, cash, Image } = order;
+  const { title, cash, image, priceForYou, priceWb } = order;
 
   const handleIncrement = () => {
     if (commonCount === 0) {
       setCount(1);
-      setCartItems(order);  
+      setCartItems(order);
       setCommonCount(1);
     }
   };
@@ -29,10 +29,15 @@ function Card({ order, commonCount, setCommonCount, setCartItems}) {
         {count}
       </span>
       <div className="image__container">
-        <img src={Image} alt={title} />
+        <img src={image} alt={title} />
       </div>
       <h4 className="card__title">
-        {title} . <span className="card__price">{cash}</span>
+        {title} .{" "}
+        <span className="card__price">
+          ❌ Цена на WB~ {priceWb} <br />
+          ❗️ Кешбэк ~ {cash} ❗️ <br />
+          ⭐️ Ваша цена - {priceForYou} 🫶
+        </span>
       </h4>
       <div className="btn-container">
         <Button title={"+"} type={"add"} onClick={handleIncrement} />
