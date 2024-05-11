@@ -10,7 +10,7 @@ export function dtoToOffers(data) {
         priceForYou: item.fields["Ваша цена"],
         priceWb: item.fields["Цена WB"],
         image: item.fields?.Фото[0]?.url,
-        id: item.id,
+        id: item.fields.Id,
         articul: item.fields.Артикул,
         keys: item.fields["Ключевые слова"],
       });
