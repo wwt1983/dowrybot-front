@@ -11,7 +11,6 @@ export function dtoToOffers(data) {
         priceWb: item.fields["Цена WB"],
         image: item.fields?.Фото[0]?.url,
         id: item.id,
-        offerId:item.fields.Id,
         articul: item.fields.Артикул,
         keys: item.fields["Ключевые слова"],
       });
