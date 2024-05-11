@@ -11,7 +11,7 @@ const override = {
 };
 function App() {
   const [commonCount, setCommonCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
@@ -34,7 +34,6 @@ function App() {
     }
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
-
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => {
@@ -53,7 +52,10 @@ function App() {
   }, [commonCount]);
 
   useEffect(() => {
-    getOffers().then((response) => setOrders(response));
+    getOffers().then((response) => {
+      setIsLoading(false);
+      setOrders(response);
+    });
     tg.ready();
   }, []);
 
