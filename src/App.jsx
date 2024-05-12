@@ -53,8 +53,8 @@ function App() {
 
   useEffect(() => {
     getOffers().then((response) => {
-      setOrders(response);
       setIsLoading(false);
+      setOrders(response);
     });
     tg.ready();
   }, []);

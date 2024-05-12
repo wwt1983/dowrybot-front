@@ -1,19 +1,24 @@
 import { BACKAND_URL } from "../constants";
 import { dtoToOffers } from "./convertDto";
 
-export async function sendData(cartItems, queryId, id) {
+export async function sendData(items, queryId, id) {
   return await fetch(`${BACKAND_URL}telegram/bot`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify({
-      title: cartItems.title,
-      cash: cartItems.cash,
-      keys: cartItems.keys,
+      title: items.title,
+      cash: items.cash,
+      keys: items.keys,
       query_id: queryId,
       id: id,
-      articul: cartItems.articul,
+      articul: items.articul,
+      offerId: items.id,
+      image: items.image,
+      priceForYou: items.priceForYou,
+      priceWb: items.priceWb,
+      description: items.description
     }),
   });
 }
