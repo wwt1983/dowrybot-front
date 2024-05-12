@@ -13,6 +13,7 @@ export function dtoToOffers(data) {
         id: item.fields.Id,
         articul: item.fields.Артикул,
         keys: item.fields["Ключевые слова"],
+        description: item.fields["Описание"],
       });
       return acc;
     }, []);
