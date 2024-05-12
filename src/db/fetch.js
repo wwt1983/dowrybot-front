@@ -14,6 +14,7 @@ export async function sendData(cartItems, queryId, id) {
       query_id: queryId,
       id: id,
       articul: cartItems.articul,
+      offerId: cartItems.id
     }),
   });
 }
