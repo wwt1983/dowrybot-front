@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { compareAsc, format } from "date-fns";
 
 import "./Card.css";
 import Button from "../button/Button";
+import { Status } from "../../constants";
 
 function Card({ order, commonCount, setCommonCount, setCartItems }) {
   const [count, setCount] = useState(0);
 
-  const { title, cash, image, priceForYou, priceWb } = order;
+  const { title, cash, image, priceForYou, priceWb, status, start } = order;
+
+  const isScheduled = status === Status.scheduled;
 
   const handleIncrement = () => {
     if (commonCount === 0) {
@@ -40,7 +44,15 @@ function Card({ order, commonCount, setCommonCount, setCartItems }) {
         </span>
       </h4>
       <div className="btn-container">
-        <Button title={"+"} type={"add"} onClick={handleIncrement} />
+        {!isScheduled && (
+          <Button title={"+"} type={"add"} onClick={handleIncrement} />
+        )}
+        {isScheduled && (
+          <span>
+            <br />
+            Старт: {format(start, "dd.MM.yyyy HH:mm")}
+          </span>
+        )}
         {count > 0 && (
           <Button title={"-"} type={"remove"} onClick={handleDecrement} />
         )}
