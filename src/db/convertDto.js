@@ -3,7 +3,8 @@ export function dtoToOffers(data) {
   console.log(data);
   try {
     return data.reduce((acc, item) => {
-      if (!item.fields?.Фото[0]) return acc;
+      if (!item?.fields?.Фото) return acc;
+
       acc.push({
         title: item.fields.Name,
         cash: item.fields.Кешбэк,
@@ -14,6 +15,8 @@ export function dtoToOffers(data) {
         articul: item.fields.Артикул,
         keys: item.fields["Ключевые слова"],
         description: item.fields["Описание"],
+        status: item.fields.Status,
+        start: item.fields.Старт
       });
       return acc;
     }, []);
