@@ -16,7 +16,7 @@ export function dtoToOffers(data) {
         status: item.fields.Status,
         start: item.fields.Старт,
         location: item.fields["Региональность"],
-        positionOnWb: item.fields["Позиция в WB"],
+        positionOnWB: item.fields["Позиция в WB"],
       });
       return acc;
     }, []);
