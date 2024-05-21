@@ -19,7 +19,8 @@ export async function sendData(items, queryId, id) {
       priceForYou: items.priceForYou,
       priceWb: items.priceWb,
       description: items.description,
-      location: items.location
+      location: items.location,
+      positionOnWB:items.positionOnWB
     }),
   });
 }
