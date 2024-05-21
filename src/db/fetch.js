@@ -20,7 +20,7 @@ export async function sendData(items, queryId, id) {
       priceWb: items.priceWb,
       description: items.description,
       location: items.location,
-      positionOnWB:items.positionOnWB
+      positionOnWB: items.positionOnWB || '',
     }),
   });
 }
