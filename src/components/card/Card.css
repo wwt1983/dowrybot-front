@@ -13,16 +13,13 @@
     margin: 13px 10px;
     position: relative;
     border-radius: 5px;
+    
   }
   
   .card__title {
     font-weight: 400;
     text-align: center;
     padding-top: 5px;
-  }
-  
-  .card__title .card__price {
-    font-weight: bold;
   }
   
   .image__container {
