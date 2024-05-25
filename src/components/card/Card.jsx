@@ -38,9 +38,9 @@ function Card({ order, commonCount, setCommonCount, setCartItems }) {
       <h4 className="card__title">
         {title}
         <span className="card__price">
-          ❌ Цена на WB~ {priceWb} <br />
+          ❌ Цена на WB~ {priceWb}₽<br />
           ❗️ Кешбэк ~ {cash} ❗️ <br />
-          ⭐️ Ваша цена - {priceForYou} 🫶 <br />
+          ⭐️ Ваша цена - {priceForYou}₽ 🫶 <br />
         </span>
       </h4>
       <div className="btn-container">
