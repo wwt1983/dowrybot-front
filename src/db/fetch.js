@@ -35,6 +35,8 @@ export async function getOffers() {
     });
 
     const result = await response.json();
+    if(!result || !result.records) return []
+    
     return dtoToOffers(result.records);
   } catch (e) {
     console.log("getOffers", e);

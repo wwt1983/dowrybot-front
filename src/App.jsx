@@ -2,6 +2,8 @@ import "./App.css";
 import { useState, useEffect, useCallback } from "react";
 import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./components/card/Card";
+import Button from "./components/button/Button";
+
 import { useTelegram } from "./hooks/useTelegram";
 import { sendData, getOffers } from "./db/fetch";
 
@@ -71,17 +73,25 @@ function App() {
         />
       ) : (
         <>
-          <h4 className="heading">{cartItems ? cartItems.title : "Раздачи"}</h4>
+          <h4 className="heading">{cartItems ? cartItems.title : "Dowry раздачи"}</h4>
           <div className="cards__container">
-            {orders.map((order) => (
-              <Card
-                order={order}
-                key={order.id}
-                commonCount={commonCount}
-                setCommonCount={setCommonCount}
-                setCartItems={setCartItems}
+            {orders && orders.length > 0 ? (
+              orders.map((order) => (
+                <Card
+                  order={order}
+                  key={order.id}
+                  commonCount={commonCount}
+                  setCommonCount={setCommonCount}
+                  setCartItems={setCartItems}
+                />
+              ))
+            ) : (
+              <Button
+                title={"Обновить"}
+                type={"add"}
+                onClick={() => window.location.reload(false)}
               />
-            ))}
+            )}{" "}
           </div>
         </>
       )}
