@@ -3,9 +3,7 @@ import { formatInTimeZone } from 'date-fns-tz';
 export function dtoToOffers(data) {
   if (!data || !Array.isArray(data)) return [];
   try {
-    return data.reduce((acc, item) => {    
-      console.log('time',item.fields.Старт)
-
+    return data.reduce((acc, item) => {
       if (!item?.fields?.Фото) return acc;
       acc.push({
         title: item.fields.Name,
