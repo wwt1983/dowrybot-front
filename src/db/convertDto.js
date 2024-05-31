@@ -16,7 +16,7 @@ export function dtoToOffers(data) {
         keys: item.fields["Ключевые слова"],
         description: item.fields["Описание"],
         status: item.fields.Status,
-        start: formatInTimeZone(item.fields.Старт, 'Europe/Moscow', 'dd.MM.yyyy HH:mm'),
+        start: item.fields.Старт ? formatInTimeZone(item.fields.Старт, 'Europe/Moscow', 'dd.MM.yyyy HH:mm') : item.fields.Старт,
         location: item.fields["Региональность"],
         positionOnWB: item.fields["Позиция в WB"],
       });
