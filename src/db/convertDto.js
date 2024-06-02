@@ -1,3 +1,5 @@
+import { formatInTimeZone } from 'date-fns-tz';
+
 export function dtoToOffers(data) {
   if (!data || !Array.isArray(data)) return [];
   try {
@@ -14,7 +16,7 @@ export function dtoToOffers(data) {
         keys: item.fields["Ключевые слова"],
         description: item.fields["Описание"],
         status: item.fields.Status,
-        start: item.fields.Старт,
+        start: item.fields.Старт ? formatInTimeZone(item.fields.Старт, 'Europe/Moscow', 'yyyy-MM-dd HH:mm') : item.fields.Старт,
         location: item.fields["Региональность"],
         positionOnWB: item.fields["Позиция в WB"],
       });
