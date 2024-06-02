@@ -8,7 +8,7 @@ export async function sendData(items, queryId, id) {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify({
-      //title: items.title,
+      title: items.title,
       //cash: items.cash,
       //keys: items.keys,
       query_id: queryId,
