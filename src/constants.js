@@ -1,5 +1,5 @@
 //export const BACKAND_URL = "https://www.dowray.ru/";
-export const BACKAND_URL = 'https://sad-hands-relate.loca.lt/';
+export const BACKAND_URL = 'https://loud-times-grin.loca.lt/';
 
 export const Status = {
   process: "In progress",
