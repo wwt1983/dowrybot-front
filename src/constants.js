@@ -6,4 +6,5 @@ export const Status = {
   scheduled: "Scheduled",
   stop: "Stop",
   done: "Done",
+  test: "Test"
 };
