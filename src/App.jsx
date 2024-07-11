@@ -6,6 +6,7 @@ import Button from "./components/button/Button";
 
 import { useTelegram } from "./hooks/useTelegram";
 import { sendData, getOffers } from "./db/fetch";
+import { getParseWbInfo } from "./parse";
 
 const override = {
   display: "block",
@@ -17,6 +18,9 @@ function App() {
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
+
+  const t = getParseWbInfo(234075582);
+  console.log(t);
 
   const onSendData = useCallback(async () => {
     try {
@@ -73,7 +77,9 @@ function App() {
         />
       ) : (
         <>
-          <h4 className="heading">{cartItems ? cartItems.title : "Dowry раздачи"}</h4>
+          <h4 className="heading">
+            {cartItems ? cartItems.title : "Dowry раздачи"}
+          </h4>
           <div className="cards__container">
             {orders && orders.length > 0 ? (
               orders.map((order) => (
