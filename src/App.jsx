@@ -6,7 +6,6 @@ import Button from "./components/button/Button";
 
 import { useTelegram } from "./hooks/useTelegram";
 import { sendData, getOffers } from "./db/fetch";
-import { getParseWbInfo } from "./parse";
 
 const override = {
   display: "block",
@@ -19,8 +18,6 @@ function App() {
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
 
-  const t = getParseWbInfo(234075582);
-  console.log(t);
 
   const onSendData = useCallback(async () => {
     try {
