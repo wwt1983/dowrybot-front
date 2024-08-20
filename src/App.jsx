@@ -73,7 +73,7 @@ function App() {
         />
       ) : (
         <>
-          <h4 className="heading">{cartItems ? cartItems.title : "Dowry раздачи"}</h4>
+          <h4 className="heading">{cartItems ? cartItems.title : "Раздачи Dowry"}</h4>
           <div className="cards__container">
             {orders && orders.length > 0 ? (
               orders.map((order) => (
@@ -91,7 +91,7 @@ function App() {
                 type={"add"}
                 onClick={() => window.location.reload(false)}
               />
-            )}{" "}
+            )}
           </div>
         </>
       )}
