@@ -18,7 +18,7 @@ function App() {
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
 
-  const onSendData = useCallback(async () => {
+  const onSendData = async () => {
     try {
       if (queryId) {
         setIsLoading(true);
@@ -34,7 +34,7 @@ function App() {
       tg.close();
       setIsLoading(false);
     }
-  }, [tg, queryId, id, cartItems, setIsLoading]);
+  };
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
@@ -73,7 +73,9 @@ function App() {
         />
       ) : (
         <>
-          <h4 className="heading">{cartItems ? cartItems.title : "Раздачи Dowry"}</h4>
+          <h4 className="heading">
+            {cartItems ? cartItems.title : "Раздачи Dowry"}
+          </h4>
           <div className="cards__container">
             {orders && orders.length > 0 ? (
               orders.map((order) => (
