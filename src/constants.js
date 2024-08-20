@@ -1,4 +1,4 @@
-export const BACKAND_URL = "http://dowray.ru/";
+export const BACKAND_URL = "https://dowray.ru:3000/";
 //export const BACKAND_URL = 'https://tall-taxis-reply.loca.lt/';
 
 export const Status = {
