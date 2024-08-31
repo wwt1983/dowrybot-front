@@ -54,7 +54,7 @@ function App() {
   }, [tg.MainButton, commonCount]);
 
   const handleOffers = () => {
-    //window.location.reload(false)
+    //
     setIsLoading(true);
     test().then((response) => {
       setIsLoading(false);
@@ -98,9 +98,9 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить" + orders}
+                title={"Обновить"}
                 type={"add"}
-                onClick={() => handleOffers()}
+                onClick={() => window.location.reload(false)}
               />
             )}
           </div>
