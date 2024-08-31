@@ -16,7 +16,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
-  const [test, setTest] = useState();
+  const [testResult, setTest] = useState();
 
   const { tg, queryId, id } = useTelegram();
 
@@ -100,7 +100,7 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить." + test}
+                title={"Обновить." + testResult}
                 type={"add"}
                 onClick={() => handleOffers()}
               />
