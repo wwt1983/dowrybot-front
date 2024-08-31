@@ -58,7 +58,6 @@ function App() {
     setIsLoading(true);
     getOffers().then((response) => {
       setIsLoading(false);
-      alert(response)
       setOrders(response);
     });
   };
@@ -99,7 +98,7 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить"}
+                title={"Обновить" + orders}
                 type={"add"}
                 onClick={() => handleOffers()}
               />
