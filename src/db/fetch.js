@@ -31,7 +31,6 @@ export async function getOffers() {
     const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
-        'Cache-Control': 'no-cache'
       },
     });
 
