@@ -51,15 +51,16 @@ function App() {
     } else {
       tg.MainButton.hide();
     }
-  }, [commonCount]);
+  }, [tg.MainButton, commonCount]);
 
   useEffect(() => {
+    console.log('get log queryId', queryId)
     getOffers().then((response) => {
       setIsLoading(false);
       setOrders(response);
     });
     tg.ready();
-  }, []);
+  }, [tg]);
 
   return (
     <>
