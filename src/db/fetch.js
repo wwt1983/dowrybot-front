@@ -34,12 +34,24 @@ export async function getOffers() {
       },
     });
 
-    console.log(response);
     if (!response || !response.data.records) return [];
 
     return dtoToOffers(response.data.records);
   } catch (e) {
     console.log("getOffers", e);
+    return [];
+  }
+}
+
+export async function test() {
+  try {
+    return await axios.get(`http://cookie.jsontest.com/`, {
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    });
+  } catch (e) {
+    console.log("test", e);
     return [];
   }
 }

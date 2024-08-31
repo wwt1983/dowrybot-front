@@ -5,7 +5,7 @@ import Card from "./components/card/Card";
 import Button from "./components/button/Button";
 
 import { useTelegram } from "./hooks/useTelegram";
-import { sendData, getOffers } from "./db/fetch";
+import { sendData, getOffers, test } from "./db/fetch";
 
 const override = {
   display: "block",
@@ -56,7 +56,7 @@ function App() {
   const handleOffers = () => {
     //window.location.reload(false)
     setIsLoading(true);
-    getOffers().then((response) => {
+    test().then((response) => {
       setIsLoading(false);
       setOrders(response);
     });
