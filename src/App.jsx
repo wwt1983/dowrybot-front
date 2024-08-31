@@ -88,7 +88,7 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить"}
+                title={"Обновить" + queryId}
                 type={"add"}
                 onClick={() => window.location.reload(false)}
               />
