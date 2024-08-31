@@ -60,7 +60,7 @@ function App() {
       setOrders(response);
     });
     tg.ready();
-  }, [tg]);
+  }, [queryId, tg]);
 
   return (
     <>
