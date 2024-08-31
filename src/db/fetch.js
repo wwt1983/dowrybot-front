@@ -53,7 +53,7 @@ export async function test() {
         },
       }
     );
-    return response.data;
+    return JSON.stringify(response.data);
   } catch (e) {
     console.log("test", e);
     return [];
