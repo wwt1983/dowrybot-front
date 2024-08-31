@@ -34,11 +34,10 @@ export async function getOffers() {
       },
     });
 
-    console.log(response)
-    const result = await response;
-    if(!result || !result.records) return result
-    
-    return dtoToOffers(result.records);
+    console.log(response);
+    if (!response || !response.data.records) return [];
+
+    return dtoToOffers(response.data.records);
   } catch (e) {
     console.log("getOffers", e);
     return [];
