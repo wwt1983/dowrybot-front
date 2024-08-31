@@ -16,6 +16,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
+  const [test, setTest] = useState();
+
   const { tg, queryId, id } = useTelegram();
 
   const onSendData = useCallback(async () => {
@@ -58,7 +60,7 @@ function App() {
     setIsLoading(true);
     test().then((response) => {
       setIsLoading(false);
-      setOrders(response);
+      setTest(response);
     });
   };
 
@@ -98,7 +100,7 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить." + orders}
+                title={"Обновить." + test}
                 type={"add"}
                 onClick={() => handleOffers()}
               />
