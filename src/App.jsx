@@ -53,12 +53,21 @@ function App() {
     }
   }, [tg.MainButton, commonCount]);
 
+  const handleOffers = () => {
+    //window.location.reload(false)
+    getOffers().then((response) => {
+      setIsLoading(false);
+      setOrders(response);
+    });
+    tg.ready();
+  };
+
   useEffect(() => {
     getOffers().then((response) => {
       setIsLoading(false);
-      setOrders(response);    
-      tg.ready();
+      setOrders(response);
     });
+    tg.ready();
   }, [queryId, tg]);
 
   return (
@@ -91,7 +100,7 @@ function App() {
               <Button
                 title={"Обновить"}
                 type={"add"}
-                onClick={() => window.location.reload(false)}
+                onClick={() => handleOffers()}
               />
             )}
           </div>
