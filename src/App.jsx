@@ -60,7 +60,6 @@ function App() {
       setIsLoading(false);
       setOrders(response);
     });
-    tg.ready();
   };
 
   useEffect(() => {
