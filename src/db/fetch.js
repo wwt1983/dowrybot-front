@@ -28,11 +28,15 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await axios.get(`${BACKAND_URL}airtable/offers`);
+    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    });
 
     const result = await response.json();
-    if (!result || !result.records) return result;
-
+    if(!result || !result.records) return result
+    
     return dtoToOffers(result.records);
   } catch (e) {
     console.log("getOffers", e);
