@@ -45,7 +45,7 @@ export async function getOffers() {
 
 export async function test() {
   try {
-    return await axios.get(`http://cookie.jsontest.com/`, {
+    return await axios.get(`https://jsonplaceholder.typicode.com/todos/1`, {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
