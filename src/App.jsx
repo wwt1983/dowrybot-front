@@ -98,7 +98,7 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить" + orders}
+                title={"Обновить." + orders}
                 type={"add"}
                 onClick={() => handleOffers()}
               />
