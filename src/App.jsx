@@ -58,6 +58,7 @@ function App() {
     setIsLoading(true);
     getOffers().then((response) => {
       setIsLoading(false);
+      alert(response)
       setOrders(response);
     });
   };
