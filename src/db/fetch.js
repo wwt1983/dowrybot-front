@@ -3,7 +3,7 @@ import { dtoToOffers } from "./convertDto";
 import axios from "axios";
 
 export async function sendData(items, queryId, id) {
-  return await fetch(`${BACKAND_URL}telegram/bot`, {
+  return await axios.post(`${BACKAND_URL}telegram/bot`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
