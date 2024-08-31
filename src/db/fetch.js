@@ -45,11 +45,15 @@ export async function getOffers() {
 
 export async function test() {
   try {
-    return await axios.get(`https://jsonplaceholder.typicode.com/todos/1`, {
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-    });
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/todos/1`,
+      {
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      }
+    );
+    return response.data;
   } catch (e) {
     console.log("test", e);
     return [];
