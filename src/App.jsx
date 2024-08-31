@@ -98,9 +98,9 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить"}
+                title={"Обновить." + orders}
                 type={"add"}
-                onClick={() => window.location.reload(false)}
+                onClick={() => handleOffers()}
               />
             )}
           </div>
