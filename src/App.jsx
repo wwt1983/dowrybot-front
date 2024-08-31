@@ -55,6 +55,7 @@ function App() {
 
   const handleOffers = () => {
     //window.location.reload(false)
+    setIsLoading(true);
     getOffers().then((response) => {
       setIsLoading(false);
       setOrders(response);
