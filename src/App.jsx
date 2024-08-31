@@ -5,7 +5,7 @@ import Card from "./components/card/Card";
 import Button from "./components/button/Button";
 
 import { useTelegram } from "./hooks/useTelegram";
-import { sendData, getOffers, test } from "./db/fetch";
+import { sendData, getOffers } from "./db/fetch";
 
 const override = {
   display: "block",
@@ -16,8 +16,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
-  const [testResult, setTest] = useState();
-
   const { tg, queryId, id } = useTelegram();
 
   const onSendData = useCallback(async () => {
@@ -55,15 +53,6 @@ function App() {
     }
   }, [tg.MainButton, commonCount]);
 
-  const handleOffers = () => {
-    //
-    setIsLoading(true);
-    test().then((response) => {
-      setIsLoading(false);
-      setTest(response);
-    });
-  };
-
   useEffect(() => {
     getOffers().then((response) => {
       setIsLoading(false);
@@ -100,9 +89,9 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить." + testResult}
+                title={"Обновить"}
                 type={"add"}
-                onClick={() => handleOffers()}
+                onClick={() => window.location.reload(false)}
               />
             )}
           </div>

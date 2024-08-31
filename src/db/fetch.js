@@ -28,11 +28,15 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-    });
+    const response = await axios.get(
+      `https://api.airtable.com/v0/appVMEtut0NWayq26/tblGUNSCgAEwhxchx?cellFormat=json&filterByFormula==OR({Status}="In progress", {Status}="Scheduled")`,
+      {
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: `Bearer patInEeuukHn2f8F0.8e6d4fb99e673b8dffb1debb1bb823f6ad678f79638b502a30b35eb91677f291`,
+        },
+      }
+    );
 
     if (!response || !response.data.records) return [];
 
@@ -50,7 +54,7 @@ export async function test() {
       {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
-          'Authorization': `Bearer patInEeuukHn2f8F0.8e6d4fb99e673b8dffb1debb1bb823f6ad678f79638b502a30b35eb91677f291`
+          Authorization: `Bearer patInEeuukHn2f8F0.8e6d4fb99e673b8dffb1debb1bb823f6ad678f79638b502a30b35eb91677f291`,
         },
       }
     );
