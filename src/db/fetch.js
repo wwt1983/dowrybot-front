@@ -31,6 +31,11 @@ export async function getOffers() {
     const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
+        proxy: {
+          protocol: 'https',
+          host: 'dowray.ru',
+          port: 8080
+        }
       },
     });
 
