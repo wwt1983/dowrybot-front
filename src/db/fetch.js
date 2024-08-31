@@ -46,10 +46,11 @@ export async function getOffers() {
 export async function test() {
   try {
     const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos/1`,
+      `https://api.airtable.com/v0/appVMEtut0NWayq26/tblMr3awrotkLiHFw?cellFormat=json&filterByFormula=SEARCH( '79093479101', {Номер СБП})`,
       {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
+          'Authorization': `Bearer patInEeuukHn2f8F0.8e6d4fb99e673b8dffb1debb1bb823f6ad678f79638b502a30b35eb91677f291`
         },
       }
     );
