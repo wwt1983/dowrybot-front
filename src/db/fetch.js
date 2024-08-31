@@ -35,7 +35,7 @@ export async function getOffers() {
     });
 
     const result = await response.json();
-    if(!result || !result.records) return result
+    //if(!result || !result.records) return result
     
     return dtoToOffers(result.records);
   } catch (e) {
