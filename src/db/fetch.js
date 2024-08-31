@@ -1,5 +1,6 @@
 import { BACKAND_URL } from "../constants";
 import { dtoToOffers } from "./convertDto";
+import axios from "axios";
 
 export async function sendData(items, queryId, id) {
   return await fetch(`${BACKAND_URL}telegram/bot`, {
@@ -27,17 +28,16 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await fetch(`${BACKAND_URL}airtable/offers`, {
+    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
     });
 
-    const result = await response.json();
-    if(!result || !result.records) return []
+    if(!response || !response.data.records) return []
     
-    return dtoToOffers(result.records);
+    return dtoToOffers(response.data.records);
   } catch (e) {
     console.log("getOffers", e);
     return [];
