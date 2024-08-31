@@ -54,12 +54,11 @@ function App() {
   }, [tg.MainButton, commonCount]);
 
   useEffect(() => {
-    console.log('get log queryId', queryId)
     getOffers().then((response) => {
       setIsLoading(false);
-      setOrders(response);
+      setOrders(response);    
+      tg.ready();
     });
-    tg.ready();
   }, [queryId, tg]);
 
   return (
@@ -74,7 +73,9 @@ function App() {
         />
       ) : (
         <>
-          <h4 className="heading">{cartItems ? cartItems.title : "Раздачи Dowry"}</h4>
+          <h4 className="heading">
+            {cartItems ? cartItems.title : "Раздачи Dowry"}
+          </h4>
           <div className="cards__container">
             {orders && orders.length > 0 ? (
               orders.map((order) => (
@@ -88,7 +89,7 @@ function App() {
               ))
             ) : (
               <Button
-                title={"Обновить раздачи" + queryId}
+                title={"Обновить"}
                 type={"add"}
                 onClick={() => window.location.reload(false)}
               />
