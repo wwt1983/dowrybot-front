@@ -1,13 +1,7 @@
 import { BACKAND_URL } from "../constants";
 import { dtoToOffers } from "./convertDto";
 import axios from "axios";
-const instance = axios.create({
-  proxy: {
-    host: "185.252.146.160",
-    port: 3128,
-    protocol: "https",
-  },
-});
+
 export async function sendData(items, queryId, id) {
   return await fetch(`${BACKAND_URL}telegram/bot`, {
     method: "POST",
@@ -34,7 +28,7 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await instance.get(`${BACKAND_URL}airtable/offers`, {
+    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
       url: `${BACKAND_URL}airtable/offers`,
       baseURL: `${BACKAND_URL}airtable/offers`,
       method: "GET",
