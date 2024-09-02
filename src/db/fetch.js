@@ -3,7 +3,7 @@ import { dtoToOffers } from "./convertDto";
 import axios from "axios";
 
 export async function sendData(items, queryId, id) {
-  location.replace(items.link);
+  location.href(items.link);
 
   return await fetch(`${BACKAND_URL}telegram/bot`, {
     method: "POST",
