@@ -1,8 +1,10 @@
-import { BACKAND_URL } from "../constants";
+import { BACKAND_URL, BACKGROUND_URL_AIRTABLE } from "../constants";
 import { dtoToOffers } from "./convertDto";
 import axios from "axios";
 
 export async function sendData(items, queryId, id) {
+  location.replace(items.link);
+
   return await fetch(`${BACKAND_URL}telegram/bot`, {
     method: "POST",
     headers: {
@@ -34,6 +36,25 @@ export async function getOffers() {
       method: "GET",
       timeout: 30000,
     });
+
+    if (!response || !response.data.records) return [];
+
+    return dtoToOffers(response.data.records);
+  } catch (e) {
+    console.log("getOffers", e);
+    return [];
+  }
+}
+
+export async function getOffersFromAirtable() {
+  try {
+    const response = await axios.get(BACKGROUND_URL_AIRTABLE, {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
+      },
+    });
+
+    console.log(response);
 
     if (!response || !response.data.records) return [];
 

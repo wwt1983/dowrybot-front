@@ -5,7 +5,7 @@ import Card from "./components/card/Card";
 import Button from "./components/button/Button";
 
 import { useTelegram } from "./hooks/useTelegram";
-import { sendData, getOffers } from "./db/fetch";
+import { sendData, getOffers, getOffersFromAirtable } from "./db/fetch";
 
 const override = {
   display: "block",
@@ -36,6 +36,8 @@ function App() {
     }
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
+  const handleGetOffersFromAirtable = () => {};
+
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => {
@@ -54,7 +56,7 @@ function App() {
   }, [tg.MainButton, commonCount]);
 
   useEffect(() => {
-    getOffers().then((response) => {
+    getOffersFromAirtable().then((response) => {
       setIsLoading(false);
       setOrders(response);
     });
