@@ -14,6 +14,8 @@ const override = {
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isAirtable, setIsAirtbale] = useState(false);
+
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
@@ -36,6 +38,13 @@ function App() {
     }
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
+  const handleGetOffersFromAirtable = () => {
+    getOffersFromAirtable().then((response) => {
+      setIsLoading(false);
+      setIsAirtbale(true);
+      setOrders(response);
+    });
+  };
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
@@ -55,7 +64,7 @@ function App() {
   }, [tg.MainButton, commonCount]);
 
   useEffect(() => {
-    getOffersFromAirtable().then((response) => {
+    getOffers().then((response) => {
       setIsLoading(false);
       setOrders(response);
     });
@@ -86,13 +95,14 @@ function App() {
                   commonCount={commonCount}
                   setCommonCount={setCommonCount}
                   setCartItems={setCartItems}
+                  isAirtable={isAirtable}
                 />
               ))
             ) : (
               <Button
                 title={"Обновить"}
                 type={"add"}
-                onClick={() => window.location.reload(false)}
+                onClick={() => handleGetOffersFromAirtable()}
               />
             )}
           </div>

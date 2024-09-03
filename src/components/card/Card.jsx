@@ -5,7 +5,13 @@ import "./Card.css";
 import Button from "../button/Button";
 import { Status } from "../../constants";
 
-function Card({ order, commonCount, setCommonCount, setCartItems }) {
+function Card({
+  order,
+  commonCount,
+  setCommonCount,
+  setCartItems,
+  isAirtable,
+}) {
   const [count, setCount] = useState(0);
 
   const { title, cash, image, priceForYou, priceWb, status, start, link } =
@@ -15,7 +21,9 @@ function Card({ order, commonCount, setCommonCount, setCartItems }) {
 
   const handleIncrement = () => {
     if (commonCount === 0) {
-      window.location.href =link;
+      if (isAirtable) {
+        window.location.href = link;
+      }
 
       setCount(1);
       setCartItems(order);

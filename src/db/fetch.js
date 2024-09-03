@@ -52,13 +52,11 @@ export async function getOffersFromAirtable() {
       },
     });
 
-    console.log(response);
-
     if (!response || !response.data.records) return [];
 
     return dtoToOffers(response.data.records);
   } catch (e) {
-    console.log("getOffers", e);
+    console.log("getOffersFromAirtable", e);
     return [];
   }
 }
