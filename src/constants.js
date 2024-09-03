@@ -1,6 +1,6 @@
 export const BACKAND_URL = "https://dowray.ru/";
 export const BACKGROUND_URL_AIRTABLE =
-  'https://api.airtable.com/v0/appVMEtut0NWayq26/tblGUNSCgAEwhxchx?cellFormat=json&filterByFormula==OR({Status}="In progress",{Status}="Scheduled",{Status}="Test")';
+  'https://api.airtable.com/v0/appVMEtut0NWayq26/tblGUNSCgAEwhxchx?cellFormat=json&filterByFormula==OR({Status}="In progress",{Status}="Scheduled")';
 //export const BACKAND_URL = 'https://tall-taxis-reply.loca.lt/';
 
 export const Status = {
