@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 
 import "./Card.css";
 import Button from "../button/Button";
@@ -8,12 +8,15 @@ import { Status } from "../../constants";
 function Card({ order, commonCount, setCommonCount, setCartItems }) {
   const [count, setCount] = useState(0);
 
-  const { title, cash, image, priceForYou, priceWb, status, start } = order;
+  const { title, cash, image, priceForYou, priceWb, status, start, link } =
+    order;
 
   const isScheduled = status === Status.scheduled;
 
   const handleIncrement = () => {
     if (commonCount === 0) {
+      window.location.href =link;
+
       setCount(1);
       setCartItems(order);
       setCommonCount(1);

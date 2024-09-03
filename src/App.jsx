@@ -36,7 +36,6 @@ function App() {
     }
   }, [tg, queryId, id, cartItems, setIsLoading]);
 
-  const handleGetOffersFromAirtable = () => {};
 
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
