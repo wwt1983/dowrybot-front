@@ -102,7 +102,7 @@ function App() {
               <Button
                 title={"Обновить"}
                 type={"add"}
-                onClick={() => handleGetOffersFromAirtable()}
+                onClick={() => window.location.reload()}
               />
             )}
           </div>
