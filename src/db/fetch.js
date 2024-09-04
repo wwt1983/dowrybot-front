@@ -29,10 +29,7 @@ export async function sendData(items, queryId, id) {
 export async function getOffers() {
   try {
     const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
-      url: `${BACKAND_URL}airtable/offers`,
-      baseURL: `${BACKAND_URL}airtable/offers`,
       method: "GET",
-      timeout: 30000,
     });
 
     if (!response || !response.data.records) return [];
