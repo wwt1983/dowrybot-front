@@ -64,7 +64,6 @@ function App() {
   }, [tg.MainButton, commonCount]);
 
   useEffect(() => {
-    console.log('queryId=', queryId)
     getOffers().then((response) => {
       setIsLoading(false);
       setOrders(response);
