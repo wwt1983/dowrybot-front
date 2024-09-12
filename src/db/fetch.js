@@ -14,7 +14,7 @@ export async function sendData(items, queryId, id) {
       //keys: items.keys,
       query_id: queryId,
       id: id,
-      articul: items.articul,
+      //articul: items.articul,
       offerId: items.id,
       //image: items.image,
       //priceForYou: items.priceForYou,
