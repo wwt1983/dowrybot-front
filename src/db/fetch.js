@@ -33,7 +33,7 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
+    const response = await axios.get(`${TEST_BACKAND_URL}airtable/offers`, {
       method: "GET",
     });
 
