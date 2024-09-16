@@ -6,6 +6,7 @@ import {
 import { dtoToOffers } from "./convertDto";
 import axios from "axios";
 
+
 export async function sendData(items, queryId, id) {
   return await fetch(`${TEST_BACKAND_URL}telegram/bot`, {
     method: "POST",
