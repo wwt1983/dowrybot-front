@@ -36,7 +36,6 @@ export async function getOffers() {
     const response = await axios.get(`${TEST_BACKAND_URL}airtable/offers`, {
       method: "GET",
     });
-
     if (!response || !response.data.records) return [];
 
     return dtoToOffers(response.data.records);
