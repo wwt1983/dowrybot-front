@@ -33,8 +33,12 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers() {
   try {
-    const response = await axios.get(`${TEST_BACKAND_URL}airtable/offers`, {
+    
+    const response = await fetch(`${TEST_BACKAND_URL}airtable/offers`, {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
     });
     if (!response || !response.data.records) return [];
 
