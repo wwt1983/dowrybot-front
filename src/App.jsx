@@ -6,16 +6,16 @@ import Button from "./components/button/Button";
 
 import { useTelegram } from "./hooks/useTelegram";
 
-import { sendData, getOffers, getOffersFromAirtable } from "./db/fetch";
+import { sendData, getOffers } from "./db/fetch";
 
 const override = {
   display: "block",
   margin: "50% auto",
 };
+
 function App() {
   const [commonCount, setCommonCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAirtable, setIsAirtbale] = useState(false);
 
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
@@ -64,6 +64,7 @@ function App() {
     });
     tg.ready();
   }, [queryId, tg]);
+
 
   return (
     <>

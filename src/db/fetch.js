@@ -31,12 +31,11 @@ export async function sendData(items, queryId, id) {
   });
 }
 
-export async function getOffers() {
+export async function getOffers(type) {
   try {
     const response = await axios.get(`${TEST_BACKAND_URL}airtable/offers`, {
-      method: "GET",
+      params: type ? {type: type} : null
     });
-    console.log(response)
     if (!response || !response.data.records) return [];
 
     return dtoToOffers(response.data.records);

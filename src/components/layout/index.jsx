@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import BurgerMenu from "../burgerMenu/BurgerMenu";
 import NavMenu from "../navMenu/NavMenu";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);

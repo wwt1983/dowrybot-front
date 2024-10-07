@@ -18,6 +18,7 @@ function Card({
     order;
 
   const isScheduled = status === Status.scheduled;
+  const isStop = status === Status.stop;
 
   const handleIncrement = () => {
     if (commonCount === 0) {
@@ -55,7 +56,7 @@ function Card({
         </span>
       </h4>
       <div className="btn-container">
-        {!isScheduled && (
+        {!isScheduled && !isStop && (
           <Button title={"+"} type={"add"} onClick={handleIncrement} />
         )}
         {isScheduled && (
@@ -64,7 +65,7 @@ function Card({
             Старт: {format(start, "dd.MM.yyyy HH:mm")}
           </span>
         )}
-        {count > 0 && (
+        {count > 0 && !isStop && (
           <Button title={"-"} type={"remove"} onClick={handleDecrement} />
         )}
       </div>
