@@ -3,8 +3,10 @@ import { useState, useEffect, useCallback } from "react";
 import ClockLoader from "react-spinners/ClockLoader";
 import Card from "./components/card/Card";
 import Button from "./components/button/Button";
-
+import BurgerMenu from "./components/burgerMenu/BurgerMenu";
+import NavMenu from "./components/navMenu/NavMenu";
 import { useTelegram } from "./hooks/useTelegram";
+
 import { sendData, getOffers, getOffersFromAirtable } from "./db/fetch";
 
 const override = {
@@ -19,6 +21,12 @@ function App() {
   const [cartItems, setCartItems] = useState(null);
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   const onSendData = useCallback(async () => {
     try {
@@ -83,6 +91,10 @@ function App() {
         />
       ) : (
         <>
+          <nav className="navbar">
+            <BurgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+            <NavMenu isOpen={isOpen} />
+          </nav>
           <h4 className="heading">
             {cartItems ? cartItems.title : "Раздачи Dowry"}
           </h4>
