@@ -21,12 +21,6 @@ function App() {
   const [orders, setOrders] = useState([]);
   const { tg, queryId, id } = useTelegram();
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   const onSendData = useCallback(async () => {
     try {
       if (queryId) {
