@@ -90,7 +90,7 @@ function App() {
                   commonCount={commonCount}
                   setCommonCount={setCommonCount}
                   setCartItems={setCartItems}
-                  isAirtable={isAirtable}
+                  isAirtable={true}
                 />
               ))
             ) : (

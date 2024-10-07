@@ -20,7 +20,7 @@ const Plan = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    getOffers("stop").then((response) => {
+    getOffers("schedule").then((response) => {
       setIsLoading(false);
       setOrders(response);
     });
@@ -39,7 +39,7 @@ const Plan = () => {
       ) : (
         <>
           <h4 className="heading">
-            {cartItems ? cartItems.title : "История раздач Dowry"}
+            {cartItems ? cartItems.title : "Скоро в Dowry"}
           </h4>
           <div className="cards__container">
             {orders && orders.length > 0 ? (
@@ -50,7 +50,7 @@ const Plan = () => {
                   commonCount={commonCount}
                   setCommonCount={setCommonCount}
                   setCartItems={setCartItems}
-                  isAirtable={false}
+                  isAirtable={true}
                 />
               ))
             ) : (
