@@ -6,41 +6,36 @@ import {
 import { dtoToOffers } from "./convertDto";
 import axios from "axios";
 
+
 export async function sendData(items, queryId, id) {
-  return await fetch(
-    `${
-      items.title.includes("тест") ? TEST_BACKAND_URL : BACKAND_URL
-    }telegram/bot`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({
-        title: items.title,
-        //cash: items.cash,
-        //keys: items.keys,
-        query_id: queryId,
-        id: id,
-        //articul: items.articul,
-        offerId: items.id,
-        //image: items.image,
-        //priceForYou: items.priceForYou,
-        //priceWb: items.priceWb,
-        //description: items.description,
-        //location: items.location,
-        //positionOnWB: items.positionOnWB,
-      }),
-    }
-  );
+  return await fetch(`${TEST_BACKAND_URL}telegram/bot`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      title: items.title,
+      //cash: items.cash,
+      //keys: items.keys,
+      query_id: queryId,
+      id: id,
+      //articul: items.articul,
+      offerId: items.id,
+      //image: items.image,
+      //priceForYou: items.priceForYou,
+      //priceWb: items.priceWb,
+      //description: items.description,
+      //location: items.location,
+      //positionOnWB: items.positionOnWB,
+    }),
+  });
 }
 
-export async function getOffers() {
+export async function getOffers(type) {
   try {
-    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
-      method: "GET",
+    const response = await axios.get(`${TEST_BACKAND_URL}airtable/offers`, {
+      params: type ? {type: type} : null
     });
-
     if (!response || !response.data.records) return [];
 
     return dtoToOffers(response.data.records);

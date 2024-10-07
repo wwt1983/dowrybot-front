@@ -1,14 +1,32 @@
-body{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Это также полезно для более предсказуемого поведения размеров элементов */
+}
+
+body {
   background-color: rgb(249, 249, 249);
   color: #000;
 }
 
-.cards__container{
+.cards__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.heading{
+.heading {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  z-index: 100; /* Нижний слой */
+  position: relative;
 }

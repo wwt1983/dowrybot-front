@@ -1,0 +1,57 @@
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-items: center;
+  margin: 0 15px;
+  padding: 0;
+  background-color: var(--primary-color);
+}
+
+.nav-list li {
+  margin: 0 15px;
+}
+
+.nav-list a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 18px;
+  position: relative; /* Относительное позиционирование для псевдоэлемента */
+  display: inline-block; /* Делаем ссылку блочным элементом */
+}
+
+.nav-list a::after {
+  content: ""; /* Содержимое псевдоэлемента */
+  display: block;
+  width: 0; /* Начальная ширина подчеркивания */
+  height: 2px; /* Высота подчеркивания */
+  background-color: white; /* Цвет подчеркивания */
+  position: absolute; /* Абсолютное позиционирование для псевдоэлемента */
+  bottom: 0; /* Позиционируем подчеркивание внизу */
+  left: 0; /* Позиционируем подчеркивание слева */
+  transition: width 0.3s ease; /* Анимация изменения ширины */
+}
+
+.nav-list a:hover::after {
+  width: 100%; /* Ширина подчеркивания при наведении */
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
+
+  .nav-list.open {
+    display: flex;
+    margin: 0;
+  }
+
+  .nav-list li {
+    text-align: center;
+    margin: 15px 0;
+  }
+}
