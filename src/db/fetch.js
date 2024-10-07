@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 export async function sendData(items, queryId, id) {
-  return await fetch(`${TEST_BACKAND_URL}telegram/bot`, {
+  return await fetch(`${BACKAND_URL}telegram/bot`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -33,7 +33,7 @@ export async function sendData(items, queryId, id) {
 
 export async function getOffers(type) {
   try {
-    const response = await axios.get(`${TEST_BACKAND_URL}airtable/offers`, {
+    const response = await axios.get(`${BACKAND_URL}airtable/offers`, {
       params: type ? {type: type} : null
     });
     if (!response || !response.data.records) return [];
