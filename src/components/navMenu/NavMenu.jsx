@@ -14,6 +14,9 @@ const NavMenu = ({ isOpen }) => {
       <li>
         <a href="/plan">Скоро в раздачах</a>
       </li>
+      <li>
+        <a href="https://www.dowry.pro/">О нас</a>
+      </li>
     </ul>
   );
 };
