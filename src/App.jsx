@@ -45,7 +45,7 @@ function App() {
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, [onSendData, tg]);
+  }, []); // Пустой массив зависимостей
 
   useEffect(() => {
     if (commonCount > 0) {
