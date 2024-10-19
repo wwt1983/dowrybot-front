@@ -1,4 +1,4 @@
-export const BACKAND_URL = "https://dowray.ru/";
+export const BACKAND_URL = "https://strong-bikes-see.loca.lt/";
 export const TEST_BACKAND_URL = "https://strong-bikes-see.loca.lt/";
 
 export const BACKGROUND_URL_AIRTABLE =
