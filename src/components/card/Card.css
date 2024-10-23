@@ -26,8 +26,7 @@
   .image__container {
     width: 100px;
     height: 100px;
-    margin: 0 auto;
-    margin-bottom: 5px;
+    margin: 0 auto 5px;
   }
   
   .image__container img {
