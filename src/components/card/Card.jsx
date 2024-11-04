@@ -18,7 +18,7 @@ function Card({
     order;
 
   const isScheduled = status === Status.scheduled;
-  const isStop = status === Status.stop || Status.archive;
+  const isStop = status === (Status.stop || Status.archive);
 
   const handleIncrement = () => {
     if (commonCount === 0) {
