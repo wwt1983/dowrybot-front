@@ -10,4 +10,5 @@ export const Status = {
   scheduled: "Scheduled",
   stop: "Stop",
   done: "Done",
+  archive: 'Архив'
 };
