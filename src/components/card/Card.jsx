@@ -51,7 +51,7 @@ function Card({
         {title}
         <span className="card__price">
           ❌ Цена на WB~ {priceWb}₽<br />
-          ❗️ Кешбэк ~ {cash} ❗️ <br />
+          {cash && cash != undefined ? `❗️ Кешбэк ~ ${cash} ❗️\n` : ""}
           ⭐️ Ваша цена - {priceForYou}₽ 🫶 <br />
         </span>
       </h4>
