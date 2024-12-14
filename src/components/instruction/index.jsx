@@ -15,11 +15,7 @@ const Instruction = () => {
           alignItems: "center",
         }}
       >
-        Пример прохождения раздачи
-        <img
-          src={WEB_APP + "/images/wb.jpg"}
-          style={{ maxWidth: "150px", height: "auto", marginTop: "10px" }}
-        />
+        Пример раздачи
       </h4>
       <div className="instruction-list">
         {getInstruction().map((x, index) => (
