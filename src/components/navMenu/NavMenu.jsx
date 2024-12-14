@@ -7,12 +7,14 @@ const NavMenu = ({ isOpen }) => {
       <li>
         <a href="/">Текущие</a>
       </li>
-
       <li>
         <a href="/history">История раздач</a>
       </li>
       <li>
         <a href="/plan">Скоро в раздачах</a>
+      </li>
+      <li>
+        <a href="/help">Инструкция</a>
       </li>
       <li>
         <a href="https://www.dowry.pro/">О нас</a>

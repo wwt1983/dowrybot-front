@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import History from './components/history'
-import Plan from './components/plan'
-import Layout from './components/layout'
+import History from "./components/history";
+import Plan from "./components/plan";
+import Instruction from "./components/instruction";
+import Layout from "./components/layout";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -23,7 +24,10 @@ const router = createBrowserRouter([
         path: "/plan",
         element: <Plan />,
       },
-
+      {
+        path: "/help",
+        element: <Instruction />,
+      },
       {
         path: "*",
         element: <App />,
