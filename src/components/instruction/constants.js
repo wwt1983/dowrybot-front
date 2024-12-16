@@ -2,14 +2,14 @@ export const WEB_APP = "https://dowrybot-front.vercel.app";
 export const HEADER = "Чтобы получить кешбэк Вам необходимо ⬇️ ";
 
 export const FIRST_STEP_OFFER =
-  "➡️ Для получения списка раздач нажмите" +
-  ' "Dowry раздачи"'.toUpperCase() +
-  "\n\n➡️ Выберите раздачу \nЗаказ необходимо оформить в указанное время. На оформление отводится 20-30 минут";
-export const FIRST_STEP = "1️⃣ НАЙТИ товар на wildberries по запросу";
-export const FIRST_STEP_KEY_VALUE =
-  "1️⃣ Ваше ключевое слово для поиска на wildberries: ";
-export const FIRST_STEP_KEY = " (его вы увидите после выбора раздачи)";
-export const FIRST_STEP_LINK = "\nПоделитесь сюда ссылкой";
+  "➡️ Для получения списка раздач нажмите" + ' "Dowry раздачи"'.toUpperCase();
+export const FIRST_STEP =
+  "➡️ Выберите раздачу \n\nЗаказ необходимо оформить в указанное время (на оформление отводится 20-30 минут)";
+
+export const FIRST_STEP_KEY =
+  "1️⃣ НАЙТИ товар на wildberries по запросу\n\n" +
+  "Ваше ключевое слово для поиска вы увидите после выбора раздачи";
+export const FIRST_STEP_LINK = "\n\nПоделитесь сюда ссылкой";
 export const FIRST_STEP_A =
   "2️⃣ ✔️Загрузите скриншот поиска нашего товара, где виден ключевой запрос ";
 export const FIRST_STEP_CART =
@@ -44,13 +44,18 @@ export const FOOTER =
 export const IMAGES_STEP_FOR_HELP = [
   {
     type: "Выбор раздачи",
-    url: ["/images/button-start.jpg", "/images/example.jpg"],
+    url: ["/images/button-start.jpg"],
     text: FIRST_STEP_OFFER,
+  },
+  {
+    type: "Выбор раздачи",
+    url: ["/images/example.jpg"],
+    text: FIRST_STEP,
   },
   {
     type: "Артикул правильный",
     url: ["/images/111.jpg"],
-    text: FIRST_STEP + FIRST_STEP_KEY + FIRST_STEP_LINK,
+    text: FIRST_STEP_KEY + FIRST_STEP_LINK,
   },
   {
     type: "Выбор раздачи",
